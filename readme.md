@@ -27,7 +27,7 @@ However, the engine performs clearly better than a random player as evidenced by
 
 ## C. References
 
-1. This work was heavily inspired by [the predecessor of Leela Zero](https://github.com/Zeta36/chess-alpha-zero), but for better or worse large parts of the code is original
+1. This work was heavily inspired by [the predecessor of Leela Zero](https://github.com/Zeta36/chess-alpha-zero), but, for better or worse, mcts part of the code is new
 2. I could not have done it without an excellent package from [Niklas Fiekas, the author of Python Chess](https://github.com/niklasf/python-chess)
 3. An excellent cheat sheet [by David Foster](https://medium.com/applied-data-science/alphago-zero-explained-in-one-diagram-365f5abf67e0) helped me out more than once 
 4. The journey began here: [AlphaZero: Shedding new light on chess, shogi, and Go](https://deepmind.com/blog/article/alphazero-shedding-new-light-grand-games-chess-shogi-and-go)
