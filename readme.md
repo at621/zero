@@ -34,7 +34,7 @@ However, the engine performs clearly better than a random player as evidenced by
 
 ## D. SQL database
 
-The following scripts were used to create and populate the sql database. Using the Keras generator and pre-splitting the dataset into smaller pieces, one epoch processing ca 500 GB of positions took around 3 hours to complete on RTX 4000.
+The following scripts were used to create and populate the sql database. Using the Keras generator and pre-splitting the dataset into smaller pieces, one epoch processing ca 500 GB of positions took around 3 hours to complete on RTX 4000. The main reason for using the database is the option to carry out stratified sampling (e.g. give less weight to first moves, include more endgames). 
 
 **Create table:**
 ~~~~sql
