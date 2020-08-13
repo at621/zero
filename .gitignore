@@ -1,0 +1,4 @@
+data/rawfiles/*.pgn
+data/modelinput/input*.npz
+src/.vscode/
+src/logs/

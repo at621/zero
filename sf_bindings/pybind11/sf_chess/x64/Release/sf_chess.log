@@ -1,0 +1,32 @@
+﻿  sf_chess.cpp
+C:\Projects\jeff\sf_chess\sf_chess.cpp(1,10): fatal error C1083: Cannot open include file: 'pybind11/pybind11.h': No such file or directory
+  benchmark.cpp
+  bitbase.cpp
+  bitboard.cpp
+  endgame.cpp
+  evaluate.cpp
+  main.cpp
+  material.cpp
+  misc.cpp
+  movegen.cpp
+  movepick.cpp
+  pawns.cpp
+  position.cpp
+  psqt.cpp
+  search.cpp
+C:\Projects\jeff\sf_chess\stockfish\search.cpp(268,36): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  tbprobe.cpp
+C:\Projects\jeff\sf_chess\stockfish\syzygy\tbprobe.cpp(547,43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Projects\jeff\sf_chess\stockfish\syzygy\tbprobe.cpp(1006,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  thread.cpp
+C:\Projects\jeff\sf_chess\stockfish\thread.cpp(216,68): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=unsigned __int64
+          ]
+  timeman.cpp
+  tt.cpp
+  tune.cpp
+  Compiling...
+  uci.cpp
+  ucioption.cpp

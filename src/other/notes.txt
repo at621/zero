@@ -1,0 +1,69 @@
+
+class stockFish:
+    def __init__(self, file):
+        self.engine = chess.engine.SimpleEngine.popen_uci(file)
+        self.children = []
+
+    def evaluate(self, board):
+        result = self.engine.analyse(board, chess.engine.Limit(time=0.01))
+        a = result['score'].white()
+        score = a.score(mate_score=10000)
+        winLoss = 1 / (1+10**(-score/400))
+
+        return winLoss
+
+sfModel = "..//models//stockfish_20011801_x64.exe"
+stockEval =  stockFish(sfModel)
+
+# # python -m cProfile -s tottime main.py
+# import pickle
+# with open('node_999.pkl', 'rb') as f:
+#     x = pickle.load(f)
+
+import numpy as np
+
+with np.load('input_1.npz') as data:
+        state_list = data['fen']
+        state_list = state_list.reshape((len(state_list), 12, 8, 8))
+        move_list = data['move']
+        result_list = data['result']
+
+
+
+import numpy as np
+
+kala = 'C:\\Projects\\ahla\\data\\modelinput\\input_1.npz'
+
+with np.load(kala) as data:
+    state_list = data['fen']
+    state_list = state_list.reshape((len(state_list), 12, 8, 8))
+    move_list = data['move']
+    result_list = data['result']
+    size = data['size']
+
+FenTensorBinary = state_list[0:10000,:,:,:]
+MoveTensorBinary = move_list[0:10000,:]
+ResultTensor = result_list[0:10000,]
+size = 10000
+
+
+np.savez('short_input_1.npz', fen=FenTensorBinary, move=MoveTensorBinary, 
+                    result=ResultTensor, size=size)
+
+
+import onnx
+import keras2onnx
+# onnx_model = keras2onnx.convert_keras(model, model.name)
+from tensorflow import keras
+import onnxmltools
+
+keras_model = keras.models.load_model('C:\\Projects\\ahla\\src\\watsonBrain')
+
+# Change this path to the output name and path for the ONNX model
+output_onnx_model = 'model.onnx'
+
+# Convert the Keras model into ONNX
+onnx_model = onnxmltools.convert_keras(keras_model)
+
+# Save as protobuf
+onnxmltools.utils.save_model(onnx_model, output_onnx_model)
