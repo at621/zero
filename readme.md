@@ -18,12 +18,6 @@ This code most likely contains more than one bug and the balance between explora
 
 The Tensorflow model is trained on ca 1m games for 12 hours. Somewhat surprisingly the model model started overfitting only after 2 epochs even after trying different parameter values. Probably the Elo of the model included in the code is between 1400-1600 points.  The engine has a real difficulty with winning the end games and the openings are less than spectacular. For this reason the average game is not especially impressive.
 
-However, the engine performs clearly better than a random player as evidenced by these two games:
-<table><tr>
-<td> <img src="assets/chess2.gif" width="400" height="400" /> </td>
-<td> <img src="assets/chess4.gif" width="400" height="400" /> </td>
-</tr></table>
-
 
 ## C. References
 
@@ -51,19 +45,6 @@ CREATE TABLE chess.dbo.games (
     ResultTensor int NOT NULL,
     CreatedDate datetime DEFAULT(getdate())
 );
-~~~~
-
-**Create an index to retrieve random rows:**
-~~~~sql
-ALTER TABLE chess.dbo.games add RandIndex UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL
-
-WITH T AS
-(SELECT  Id, RandRow,
-         ROW_NUMBER() OVER (ORDER BY [RandIndex]) AS RN
- FROM    chess.dbo.games
-)
-UPDATE  T
-SET RandRow = RN
 ~~~~
 
 ## E. Varia 
